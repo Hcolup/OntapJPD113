@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn từ vựng · できる日本語</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020617;--tx:#f8fafc;--mu:#8b9bb4;--ac:#67e8f9;--ln:#172236;--in:#121212;--ok:#4ade80;--no:#f87171;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{background:var(--bg);margin:0}
+body{color:var(--tx);font-family:Nunito,"Segoe UI","Noto Sans JP","Hiragino Sans",system-ui,sans-serif}
+[hidden]{display:none!important}
+#app{max-width:780px;margin:0 auto;padding:0 16px;min-height:100dvh;display:flex;flex-direction:column}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 0 14px;border-bottom:1px solid var(--ln)}
+.mode{color:var(--ac);font-size:11px;font-weight:900;letter-spacing:.15em}
+.cnt{font-size:20px;font-weight:900}
+.c{text-align:center}
+.lab{color:var(--mu);font-size:12px;font-weight:900;letter-spacing:.2em}
+#tm{font-family:ui-monospace,Consolas,monospace;font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
+.quit{justify-self:end;background:none;border:1px solid var(--ln);color:var(--tx);border-radius:99px;padding:8px 16px;font-weight:800;font-size:12px;font-family:inherit;cursor:pointer}
+.pg{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:32px 0}
+.cap{color:var(--mu);font-size:12px;font-weight:900;letter-spacing:.2em}
+#vi{font-size:clamp(34px,9vw,58px);font-weight:900;margin:10px 0 8px;line-height:1.15}
+#hint{color:#93c5fd;min-height:24px;font-weight:700}
+.ime{width:100%;display:flex;align-items:center;gap:12px;border:1px solid var(--ln);border-radius:99px;padding:8px 10px 8px 18px;margin-top:28px;color:var(--mu);font-weight:900;letter-spacing:.15em;font-size:12px}
+.seg{display:flex;background:#0b1220;border-radius:10px;padding:3px}
+.seg button{background:none;border:0;color:var(--mu);width:32px;height:30px;border-radius:8px;font-size:15px;cursor:pointer;font-family:inherit}
+.seg button.on{background:#1b2638;color:#fff}
+.seg.tabs{margin-bottom:18px}.seg.tabs button{width:auto;padding:0 20px;height:38px;font-size:14px;font-weight:800;border-radius:10px}
+#inp{width:100%;margin-top:14px;background:var(--in);color:#fff;border:2px solid #1e4452;border-radius:28px;padding:16px;font-size:44px;font-weight:900;font-family:inherit;text-align:center;outline:0;box-shadow:0 0 0 6px rgba(103,232,249,.1)}
+#inp.ok{border-color:var(--ok);box-shadow:0 0 0 6px rgba(74,222,128,.12)}
+#inp.bad{border-color:var(--no);box-shadow:0 0 0 6px rgba(248,113,113,.12)}
+.go{width:100%;margin-top:10px;background:var(--ac);color:#04121a;border:0;border-radius:99px;padding:14px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}
+.go:focus-visible,.chip:focus-visible,.quit:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ghost{background:none;border:0;color:var(--mu);font-weight:800;font-size:12px;font-family:inherit;cursor:pointer;margin-top:12px;text-decoration:underline}
+.fb{width:100%;margin-top:14px;border:2px solid #f9a8b8;background:#1d1420;border-radius:26px;padding:12px 18px 14px;display:grid;grid-template-columns:1fr auto;column-gap:12px;row-gap:2px;text-align:left}
+.fb.ok{border-color:#86efac;background:#0f1f19}
+.fb small{font-size:11px;font-weight:800;color:var(--mu)}
+.fb .r{text-align:right}
+.fb .st{font-size:11px;font-weight:900;letter-spacing:.2em;color:#fb7185}
+.fb .tp{text-align:right;font-size:17px;font-weight:900;color:#fb7185}
+.fb .an{grid-column:1/3;font-size:30px;font-weight:900;line-height:1.2}
+.fb.ok .st,.fb.ok .tp{color:var(--ok)}
+.sub{color:var(--mu);font-size:12px;font-weight:700;margin-top:10px;max-width:460px;line-height:1.5}
+h1{font-size:clamp(28px,7vw,44px);margin:0 0 8px;font-weight:900;line-height:1.15}
+p.d{color:var(--mu);margin:0 0 24px;font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.chip{background:none;border:1px solid var(--ln);color:var(--mu);border-radius:16px;padding:12px 20px;font-weight:800;font-size:15px;font-family:inherit;cursor:pointer}
+.chip.on{border-color:var(--ac);color:var(--ac);background:rgba(103,232,249,.08)}
+.num{display:flex;align-items:center;gap:10px;color:var(--mu);font-weight:800;margin-bottom:22px}
+.num input{width:84px;background:var(--in);color:#fff;border:2px solid #1e4452;border-radius:14px;padding:10px;font-size:20px;font-weight:900;font-family:inherit;text-align:center}
+#setup .go,#done .go{max-width:340px}
+.big{font-size:72px;font-weight:900;line-height:1}
+.wl{width:100%;max-width:520px;text-align:left;margin:18px 0 6px;border-top:1px solid var(--ln)}
+.wl div{display:flex;justify-content:space-between;gap:14px;padding:10px 2px;border-bottom:1px solid var(--ln);font-weight:700}
+.wl span:last-child{color:var(--ac);text-align:right;font-weight:800}
+.stack{display:flex;flex-direction:column;gap:10px;width:100%;align-items:center}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="bar" id="bar" hidden>
+  <div><div class="mode">VIỆT → NHẬT</div><div class="cnt" id="cnt">1 / 1</div></div>
+  <div class="c"><div class="lab">THỜI GIAN</div><div id="tm">00:00</div></div>
+  <button class="quit" id="quit">✕ Thoát</button>
+</header>
+
+<section class="pg" id="setup">
+  <h1>Ôn từ vựng できる日本語</h1>
+  <p class="d">Đọc nghĩa tiếng Việt, gõ lại từ tiếng Nhật. Chọn cách ôn và một mục để bắt đầu.</p>
+  <div class="seg tabs"><button id="tb" class="on">Theo bài</button><button id="tt">Theo chủ đề</button></div>
+  <div class="row" id="chips"></div>
+  <button class="go" id="start">Ôn cả 5 chủ đề</button>
+  <p class="sub">Bộ gõ trong trang tự đổi romaji sang kana: “sensei” → せんせい. Gõ n’ hoặc nn cho ん, gõ đôi phụ âm cho っ, dấu - cho ー. Nhấn Tab để đổi giữa あ và ア.</p>
+</section>
+
+<section class="pg" id="quiz" hidden>
+  <div class="cap" id="cap">NGHĨA TIẾNG VIỆT</div>
+  <div id="vi"></div>
+  <div id="hint"></div>
+  <div class="ime">BỘ GÕ TRONG APP
+    <div class="seg"><button id="bh" class="on" title="Hiragana">あ</button><button id="bk" title="Katakana">ア</button></div>
+  </div>
+  <input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Gõ từ tiếng Nhật">
+  <button class="go" id="btn">Đã gõ xong từ</button>
+  <div class="fb" id="fb" hidden><div class="st" id="fl"></div><small class="r">Bạn gõ</small><small>Đáp án</small><div class="tp" id="fy"></div><div class="an" id="fa"></div></div>
+  <div class="sub" id="tip">Nhấn Enter để kiểm tra từ đã gõ.</div>
+  <button class="ghost" id="skip">Bỏ qua câu này</button>
+</section>
+
+<section class="pg" id="done" hidden>
+  <div class="cap">KẾT QUẢ</div>
+  <div class="big" id="sc"></div>
+  <p class="d" id="st"></p>
+  <div class="wl" id="wl"></div>
+  <div class="stack">
+    <button class="go" id="again">Ôn lại từ sai</button>
+    <button class="ghost" id="redo">Làm lại bộ vừa chọn</button>
+    <button class="ghost" id="home">Chọn bài khác</button>
+  </div>
+</section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const raw=`
+#1
+わたし|私|tôi
+なまえ/おなまえ|(お)名前|tên (khi dùng với người khác thì thêm お vào trước)
+くに/おくに|(お)国|nước (khi dùng với người khác thì thêm お vào trước)
+にほん|日本|Nhật Bản
+アメリカ||Mỹ
+イタリア||Ý
+オーストラリア||Úc
+かんこく||Hàn Quốc
+タイ||Thái Lan
+ちゅうごく|中国|Trung Quốc
+ロシア||Nga
+こうこう|高校|trung học phổ thông
+だいがく|大学|đại học
+にほんごがっこう|日本語学校|trường tiếng Nhật
+しごと/おしごと|(お)仕事|công việc (khi dùng với người khác thì thêm お vào trước)
+がくせい|学生|học sinh
+せんせい|先生|giáo viên (khi dùng với người khác thì thêm お vào trước)
+きょうし|教師|giáo viên
+かいしゃいん|会社員|nhân viên công ty
+しゃいん|社員|nhân viên công ty
+さん|〜さん|anh/chị ~
+じん|〜人（例：日本人）|người~ (ví dụ: người Nhật)
+どちら||nào
+おくにはどちらですか|お国はどちらですか。|Bạn người nước nào?
+はじめまして||câu chào khi lần đầu gặp
+よろしくおねがいします/どうぞよろしくおねがいします|(どうぞ)よろしくお願いします|Rất mong được sự giúp đỡ của anh/chị.
+こちらこそ||Chính tôi cũng thế
+あのう||À
+すみません||xin lỗi
+あのう、すみません。||À, xin lỗi.
+そうですか||thế à
+はい||vâng
+いいえ||không
+たんじょうび|誕生日|sinh nhật
+ブラジル||Brazil
+がつ|〜月|tháng~
+にち|〜日|ngày~
+さい|〜歳|~tuổi
+いつ||bao giờ
+しゅみ|趣味|sở thích
+スポーツ||thể thao
+サッカー||bóng đá
+テニス||quần vợt
+すいえい|水泳|bơi
+えいが|映画|điện ảnh
+おんがく|音楽|âm nhạc
+どくしょ|読書|đọc sách
+りょこう|旅行|du lịch
+りょうり||nấu ăn
+わたしのしゅみはりょうりです。|私の趣味は料理です。|Sở thích của tôi là nấu ăn.
+なに|何|gì/cái gì
+あ/あっ|あ（っ）|a
+わあ||Ôi
+おなじですね|同じですね|giống nhau nhỉ.
+#2
+おいしい||ngon
+ここ/こちら||chỗ này
+そこ/そちら||chỗ đấy
+あそこ/あちら||chỗ kia
+インフォメーション||thông tin
+エーティーエム|ＡＴＭ|máy rút tiền
+エスカレーター||cầu thang cuốn
+エレベーター||thang máy
+きつえんじょ||chỗ hút thuốc
+トイレ||toa-lét
+レジ||chỗ tính tiền
+きっさてん||quán trà/cà-phê
+スーパー||siêu thị
+ひゃくえんショップ|100円ショップ|cửa hàng 100 yên
+レストラン||nhà hàng
+ちか||dưới lòng đất
+カメラ||máy ảnh
+けいたいでんわ||điện thoại cầm tay
+でんしじしょ||từ điển điện tử
+パソコン||máy vi tính
+くつ||giầy
+けしゴム||tẩy
+ペン||bút
+トイレットペーパー||giấy toa-lét
+ほん|本|sách
+あぶら||dầu
+ケーキ||bánh ngọt
+こめ||gạo
+たまご|卵|trứng
+パン||bánh mì
+みず|水|nước
+てんいん|店員|người bán hàng
+かい|〜階|tầng~
+や||cửa hàng (ví dụ: cửa hàng sách)
+どこ||đâu
+いらっしゃいませ||xin chào quý khách
+ありがとうございます/どうもありがとうございます|(どうも)ありがとうございます|(xin) cám ơn
+これ||cái này
+それ||cái đấy
+あれ||cái kia
+この||này
+その||đấy
+あの||kia
+かばん||túi, cặp
+ズボン||quần
+ティーシャツ|Ｔシャツ|áo phông
+とけい||đồng hồ
+えん|〜円|~yên
+いくら||bao nhiêu
+じゃ||thế thì
+さかな||cá
+にく||thịt
+ぎゅうにく||thịt bò
+とりにく||thịt gà
+ぶたにく||thịt lợn
+やさい||rau
+イチゴ||dâu tây
+リンゴ||táo
+りょうり||món ăn
+これはさかなのりょうりです。|これは魚の料理です。|Đây là món cá.
+カレー||món cơ-ri
+スープ||món súp
+とんかつ||món thịt lợn chiên
+ハンバーグ||món thịt băm rán
+ごはん||cơm
+ごはんをふたつください。/ごはんを2つください。|ご飯を２つください。|Cho tôi hai bát cơm.
+ライス||gạo, cơm
+ジュース||nước hoa quả
+コーヒー||cà-phê
+こうちゃ||trà đen
+ちゃ/おちゃ||trà (xanh)
+ビール||bia
+ワイン||rượu vang
+インド||Ấn Độ
+ドイツ||Đức
+フランス||Pháp
+さいふ||ví
+えいご|英語|tiếng Anh
+ご|〜語（例：日本語）|tiếng~ (ví dụ: tiếng Nhật)
+つ|〜つ|~cái
+だれ|誰|ai
+ちゅうもんをおねがいします|注文をお願いします|cho tôi gọi món
+どうぞ||xin mời
+こちらへどうぞ||xin mời đến đây
+メニュー||thực đơn
+しょうしょうおまちください|少々お待ちください|xin đợi một chút
+#3
+しゅうまつ|週末|cuối tuần
+いま|今|bây giờ
+ごぜん|午前|buổi sáng
+ごご|午後|buổi chiều
+ひる|昼|buổi trưa
+ぎんこう||ngân hàng
+たいいくかん||nhà chơi thể thao
+としょかん||thư viện
+びょういん||bệnh viện
+ゆうびんきょく||bưu điện
+じゅぎょう|授業|giờ học
+テスト||bài kiểm tra
+やすみ|休み|giờ nghỉ
+じかん|時間|thời gian
+じ|〜時|~giờ
+ふん/ぷん|〜分|~phút
+いま、くじにじゅっぷんです。/いま、くじ20ぷんです。|今、９時20分です。|bây giờ là 9 giờ 20 phút
+じはん|〜時半|~giờ rưỡi
+ようび|〜曜日|thứ~
+スケジュール||lịch làm việc
+アルバイト||việc làm thêm
+スキー||trượt tuyết
+パーティー||bữa tiệc
+バーベキュー||bữa tiệc thịt nướng
+はなび|花火|pháo hoa
+はなみ/おはなみ|(お)花見|ngắm hoa
+ホームステイ||trọ nhà người bản xứ
+まつり/おまつり|(お)祭り|lễ hội
+うみ||biển
+こうえん||công viên
+さくら|桜|(hoa) anh đào
+さけ/おさけ||rượu
+すし/おすし|(お)すし|món sushi
+バス||xe buýt
+べんとう/おべんとう||cơm hộp
+りゅうがくせい|留学生|lưu học sinh
+いちねん|１年|năm thứ nhất
+はる|春|mùa xuân
+なつ|夏|mùa hè
+あき|秋|mùa thu
+ふゆ|冬|mùa đông
+ゴールデンウィーク||Tuần lễ vàng (khoảng thời gian cuối tháng tư đầu tháng năm có nhiều ngày nghỉ )
+なに|何|gì
+いきます/いく|行きます[行く]|đi
+かえります/かえる|帰ります[帰る]|về
+のみます/のむ|飲みます[飲む]|uống
+たべます/たべる|食べます[食べる]|ăn
+みます/みる|見ます[見る]|xem
+します/する|します[する]|làm
+スキーをします。||trượt tuyết
+いいですね||thích nhỉ
+なつやすみ、ほっかいどうへいきます。|夏休み、北海道へ行きます。|A: Nghỉ hè tôi sẽ đi Hokkaido.
+いいですね。||B: Thích nhỉ.
+えっ||sao
+へえ||à, thế à
+あさ|朝|buổi sáng
+よる|夜|buổi đêm
+まいにち|毎日|hàng ngày
+まいあさ|毎朝|hàng sáng
+まいばん|毎晩|hàng tối
+あさごはん||cơm sáng
+ひるごはん||cơm trưa
+うち||nhà
+かいしゃ||công ty
+がっこう|学校|trường học
+コンビニ||cửa hàng tiện lợi
+ぎゅうにゅう||sữa bò
+くだもの||hoa quả
+サラダ||món sa-lát
+チーズ||pho-mát
+インターネット||Internet
+しんぶん||báo
+テレビ||ti-vi
+シーディー|ＣＤ|đĩa CD
+ディーブイディー|ＤＶＤ|đĩa DVD
+なにも|何も|gì cả
+どこも|どこ(へ)も|đâu cả
+かいます/かう|買います ［買う］|mua
+ききます/きく|聞きます ［聞く］|nghe
+シーディーをききます。|ＣＤを聞きます。|nghe đĩa CD
+はたらきます/はたらく|働きます[働く]|làm việc
+よみます/よむ|読みます[読む]|đọc
+おきます/おきる|起きます[起きる]|dậy
+ねます/ねる|寝ます[寝る]|ngủ
+べんきょうします/べんきょうする|勉強・します［勉強・する］|học
+きます/くる|来ます[来る]|đến
+#4
+ひ|日|日|Cách đọc đứng riêng
+にち|日|日|Cách đọc trong thứ
+つき|月|月|Cách đọc đứng riêng
+げつ|月|月|Cách đọc trong thứ
+ひ|火|火|Cách đọc đứng riêng
+か|火|火|Cách đọc trong thứ
+みず|水|水|Cách đọc đứng riêng
+すい|水|水|Cách đọc trong thứ
+き|木|木|Cách đọc đứng riêng
+もく|木|木|Cách đọc trong thứ
+かね|金|金|Cách đọc đứng riêng
+きん|金|金|Cách đọc trong thứ
+つち|土|土|Cách đọc đứng riêng
+ど|土|土|Cách đọc trong thứ
+`;
+const VOC=[];let L=0;
+raw.trim().split('\n').forEach(s=>{s=s.trim();if(s[0]==='#'){L=+s[1];return}const p=s.split('|');VOC.push({l:L,k:p[0].split('/'),j:p[1]||'',v:p[2],h:p[3]||''})});
+const K=e=>e.v+'|'+e.h;const BY={};VOC.forEach(e=>(BY[K(e)]=BY[K(e)]||[]).push(e));
+
+/* Bộ gõ romaji → kana */
+const T={},R={'':'あいうえお',k:'かきくけこ',s:'さしすせそ',t:'たちつてと',n:'なにぬねの',h:'はひふへほ',m:'まみむめも',r:'らりるれろ',g:'がぎぐげご',z:'ざじずぜぞ',d:'だぢづでど',b:'ばびぶべぼ',p:'ぱぴぷぺぽ'};
+for(const c in R)[...'aiueo'].forEach((v,j)=>T[c+v]=R[c][j]);
+const SM={a:'ゃ',u:'ゅ',o:'ょ'};
+for(const c of 'kgnhmrbp')for(const v in SM)T[c+'y'+v]=R[c][1]+SM[v];
+Object.assign(T,{ya:'や',yu:'ゆ',yo:'よ',wa:'わ',wo:'を',shi:'し',chi:'ち',tsu:'つ',fu:'ふ',ji:'じ',si:'し',ti:'ち',tu:'つ',hu:'ふ',zi:'じ',
+sha:'しゃ',shu:'しゅ',sho:'しょ',she:'しぇ',cha:'ちゃ',chu:'ちゅ',cho:'ちょ',che:'ちぇ',ja:'じゃ',ju:'じゅ',jo:'じょ',je:'じぇ',
+fa:'ふぁ',fi:'ふぃ',fe:'ふぇ',fo:'ふぉ',thi:'てぃ',dhi:'でぃ',wi:'うぃ',we:'うぇ',
+xa:'ぁ',xi:'ぃ',xu:'ぅ',xe:'ぇ',xo:'ぉ',xtu:'っ',xtsu:'っ',xya:'ゃ',xyu:'ゅ',xyo:'ょ'});
+function conv(s,K,fin){
+  s=s.toLowerCase().replace(/’/g,"'");
+  const P=x=>K?x.replace(/[\u3041-\u3096]/g,c=>String.fromCharCode(c.charCodeAt(0)+96)):x;
+  let o='',i=0;
+  while(i<s.length){
+    const c=s[i],n=s[i+1];
+    if(c==='-'){o+='ー';i++;continue}
+    if(!/[a-z']/.test(c)){o+=c;i++;continue}
+    if(c==="'"){i++;continue}
+    if(c==='n'){
+      if(n===undefined){if(fin){o+=P('ん');i++;continue}o+='n';break}
+      if(n==="'"){o+=P('ん');i+=2;continue}
+      if(n==='n'){const m=s[i+2];o+=P('ん');i+=(m===undefined?(fin?2:1):/[aiueoy]/.test(m)?1:2);continue}
+      if(!/[aiueoy]/.test(n)){o+=P('ん');i++;continue}
+    }
+    if(c===n&&!/[aiueon]/.test(c)){o+=P('っ');i++;continue}
+    let f=0;
+    for(let l=4;l>0;l--){const t=T[s.substr(i,l)];if(t){o+=P(t);i+=l;f=1;break}}
+    if(f)continue;
+    const r=s.slice(i);
+    if(r.length<4&&Object.keys(T).some(k=>k.startsWith(r))){o+=r;break}
+    o+=c;i++;
+  }
+  return o;
+}
+const H=s=>s.replace(/[\u30a1-\u30f6]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/[\s、。，．,.]/g,'');
+
+/* Trạng thái */
+let sel=new Set([1,2]),Q=[],i=0,okN=0,W=[],t0=0,timer=0,phase=0,kata=false,last=[];
+const shuffle=a=>{a=a.slice();for(let x=a.length-1;x>0;x--){const y=Math.random()*(x+1)|0;[a[x],a[y]]=[a[y],a[x]]}return a};
+const screen=n=>{['setup','quiz','done'].forEach(k=>$(k).hidden=k!==n);$('bar').hidden=n!=='quiz'};
+const fmt=ms=>{const s=ms/1000|0;return String(s/60|0).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+const fw=s=>s.replace(/[\u301c\uff5e]/g,'～').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\[/g,'［').replace(/\]/g,'］');
+const disp=e=>e.k[0]+(e.j?'（'+fw(e.j)+'）':'');
+const ansText=e=>BY[K(e)].map(disp).join(' / ');
+
+const TOP=[
+{n:'Quốc gia',k:['にほん','アメリカ','イタリア','オーストラリア','かんこく','タイ','ちゅうごく','ロシア','ブラジル','インド','ドイツ','フランス']},
+{n:'Món ăn',k:['りょうり','カレー','スープ','とんかつ','ハンバーグ','サラダ','すし','べんとう','ごはん','ライス','あさごはん','ひるごはん','バーベキュー','さかな','にく','ぎゅうにく','とりにく','ぶたにく','やさい','イチゴ','リンゴ','くだもの','こめ','たまご','パン','ケーキ','あぶら','チーズ','みず','ジュース','コーヒー','こうちゃ','ちゃ','ぎゅうにゅう','ビール','ワイン','さけ']},
+{n:'Đồ vật',k:['かばん','ズボン','ティーシャツ','くつ','とけい','さいふ','カメラ','けいたいでんわ','でんしじしょ','パソコン','テレビ','シーディー','ディーブイディー','ほん','しんぶん','ペン','けしゴム','トイレットペーパー']},
+{n:'Địa điểm',k:['うち','がっこう','にほんごがっこう','こうこう','だいがく','かいしゃ','ぎんこう','としょかん','たいいくかん','びょういん','ゆうびんきょく','レストラン','きっさてん','スーパー','コンビニ','ひゃくえんショップ','や','こうえん','うみ','インフォメーション','エーティーエム','エスカレーター','エレベーター','きつえんじょ','トイレ','レジ','ちか','ここ','そこ','あそこ','どこ']},
+{n:'Hán tự',l:4,k:[]}
+];
+const inTop=(t,e)=>t.l?e.l===t.l:(e.l!==4&&t.k.includes(e.k[0])&&!(e.k[0]==='りょうり'&&e.v==='nấu ăn'));
+let byLesson=true;
+function chips(){
+  $('chips').innerHTML='';
+  const G=byLesson?[1,2,3].map(n=>({n:'Bài '+n,L:VOC.filter(e=>e.l===n)})):TOP.map(t=>({n:t.n,L:VOC.filter(e=>inTop(t,e))}));
+  G.forEach(g=>{const b=document.createElement('button');b.className='chip';
+    b.textContent=g.n+' · '+g.L.length+' từ';
+    b.onclick=()=>begin(shuffle(g.L));$('chips').appendChild(b)});
+  $('start').textContent=byLesson?'Ôn cả 3 bài':'Ôn cả '+TOP.length+' chủ đề';
+  $('tb').classList.toggle('on',byLesson);$('tt').classList.toggle('on',!byLesson);
+}
+function begin(list){
+  last=list;Q=shuffle(list);i=0;okN=0;W=[];t0=Date.now();
+  clearInterval(timer);$('tm').textContent='00:00';
+  timer=setInterval(()=>$('tm').textContent=fmt(Date.now()-t0),500);
+  screen('quiz');show();
+}
+function show(){
+  const e=Q[i];
+  $('cnt').textContent=(i+1)+' / '+Q.length;
+  $('cap').textContent=e.l===4?'HÁN TỰ':'NGHĨA TIẾNG VIỆT';$('vi').style.fontSize=e.l===4?'96px':'';
+  $('vi').textContent=e.v;$('hint').textContent=e.h;
+  const n=$('inp');n.value='';n.className='';n.readOnly=false;
+  $('fb').hidden=true;
+  $('btn').textContent='Đã gõ xong từ';$('tip').textContent='Nhấn Enter để kiểm tra từ đã gõ.';
+  $('skip').hidden=false;phase=0;n.focus();
+}
+function check(skip){
+  const e=Q[i],n=$('inp');
+  const v=skip?'':conv(n.value,kata,true);
+  if(!skip){if(!v){n.focus();return}n.value=v}
+  const ok=!skip&&BY[K(e)].some(x=>x.k.some(a=>H(a)===H(v)));
+  if(ok)okN++;else W.push(e);
+  n.className='';n.readOnly=true;
+  const f=$('fb');f.className='fb'+(ok?' ok':'');f.hidden=false;
+  $('fl').textContent=ok?'ĐÚNG':skip?'BỎ QUA':'SAI';
+  $('fa').textContent=ansText(e);
+  $('fy').textContent=skip?'—':v;
+  $('btn').textContent=i+1>=Q.length?'Xem kết quả':'Tiếp tục';
+  $('tip').textContent='Nhấn Enter để sang từ tiếp theo.';
+  $('skip').hidden=true;phase=1;
+}
+function next(){i++;i>=Q.length?finish():show()}
+function finish(){
+  clearInterval(timer);
+  $('sc').textContent=okN+' / '+Q.length;
+  $('st').textContent='Đúng '+Math.round(okN/Q.length*100)+'% · thời gian '+fmt(Date.now()-t0);
+  $('wl').innerHTML='';
+  W.forEach(e=>{const d=document.createElement('div');d.innerHTML='<span></span><span></span>';
+    d.children[0].textContent=e.v;d.children[1].textContent=disp(e);$('wl').appendChild(d)});
+  $('wl').hidden=!W.length;$('again').hidden=!W.length;
+  screen('done');
+}
+
+/* Sự kiện */
+$('inp').addEventListener('input',e=>{if(e.isComposing||phase)return;const v=conv($('inp').value,kata,false);if(v!==$('inp').value)$('inp').value=v});
+function mode(k){kata=k;$('bh').classList.toggle('on',!k);$('bk').classList.toggle('on',k);$('inp').focus()}
+$('bh').onclick=()=>mode(false);$('bk').onclick=()=>mode(true);
+$('btn').onclick=()=>phase?next():check();
+$('skip').onclick=()=>check(true);
+document.addEventListener('keydown',e=>{
+  if($('quiz').hidden)return;
+  if(e.key==='Enter'){e.preventDefault();phase?next():check()}
+  else if(e.key==='Tab'){e.preventDefault();mode(!kata)}
+});
+$('start').onclick=()=>begin(shuffle(byLesson?VOC.filter(e=>e.l<4):TOP.flatMap(t=>VOC.filter(e=>inTop(t,e)))));
+$('tb').onclick=()=>{byLesson=true;chips()};$('tt').onclick=()=>{byLesson=false;chips()};
+$('quit').onclick=()=>{clearInterval(timer);screen('setup')};
+$('again').onclick=()=>begin(W.slice());
+$('redo').onclick=()=>begin(last);
+$('home').onclick=()=>screen('setup');
+chips();
+</script>
+</body>
+</html>
